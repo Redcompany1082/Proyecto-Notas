@@ -51,6 +51,6 @@ class Usuario:
         usuario = (self.email, cifrado.hexdigest())
         
         cursor.execute(sql, usuario)
-        result = cursor.fetchone()# para obtener solo un resultado de la busqueda
+        result = cursor.fetchone()# para obtener solo un resultado de la busqueda en una lista
         
         return result 
