@@ -31,10 +31,10 @@ class Acciones:
             
             if email == login[3]:
                 print(f"\nBienvenido {login[1]}!! te has registrado en el sistema {login[5]}")
-                self.proximasAcciones(login) 
+                self.proximasAcciones(login)# proximasAcciones recibe como parametro el usuario identificado, devuelto en el fetchone 
                     
         except Exception as e:
-            #print(type(e))
+            print(type(e))
             print("Nombre de usuario o contraseña incorrecta")  
 
     
@@ -44,6 +44,7 @@ class Acciones:
          Acciones disponibles:
             -Crear notas    (crear)
             -Mostar notas   (mostrar)
+            -Modificar nota (modificar)
             -Eliminar notas (eliminar)
             -Salir          (salir)             
               
@@ -62,7 +63,12 @@ class Acciones:
         elif accion == "mostrar":
             hazEl.mostrar(usuario)
             self.proximasAcciones(usuario)
-            
+        
+        elif accion == "modificar":
+            hazEl.modificar(usuario)
+            self.proximasAcciones(usuario)    
+        
+        
         elif accion == "eliminar":
             hazEl.borrar(usuario)
             self.proximasAcciones(usuario)

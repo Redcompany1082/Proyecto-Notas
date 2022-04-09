@@ -25,6 +25,16 @@ class Nota:
         
         return [cursor.rowcount, self]
     
+   
+    def modificar(self):
+        sql = f"UPDATE notas SET descripcion = \"{self.descripcion}\" WHERE usuario_id = {self.usuario_id} AND titulo LIKE \"%{self.titulo}%\" "
+        cursor.execute(sql)
+        database.commit()
+        
+        return [cursor.rowcount, self]
+    
+    
+    
     def listar(self):
         sql = f"SELECT * FROM notas WHERE usuario_id = {self.usuario_id}" # selecciona todas las notas de el usario identificado
         cursor.execute(sql)

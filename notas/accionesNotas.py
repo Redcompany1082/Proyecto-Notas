@@ -35,6 +35,23 @@ class Acciones:
             print(lista[3])    
             print("***********************************************")
             
+    def modificar(self, usuario):
+        print(f"\nOk, {usuario[1]} ¿Qué nota quieres modificar?: ")
+        
+        
+        titulo = input("Introduce el titulo de la nota a modificar: ")
+        descripcion = input("Introduce el nuevo contenido de la nota: ")
+        
+        nota = modeloNota.Nota(usuario[0], titulo, descripcion)
+        
+        notas = nota.modificar()
+        
+        if notas[0] >= 1: # notas[0] devuelve el número de la rowcount
+            print(f"Se ha modificado  {nota.titulo}")
+        else:
+            print("No se ha modificado la nota")
+
+    
     def borrar(self, usuario):
         print(f"Ok, {usuario[1]} vamos a borrar notas...")
         
